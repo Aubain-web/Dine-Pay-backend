@@ -45,4 +45,8 @@ public class FactureService {
         }
     }
 
+    public List<FactureEntity> getAllFacturesOfOneTable(long id){
+        return factureRepository.findFactureEntitiesByTableEntityId(id);
+    }
+
 }

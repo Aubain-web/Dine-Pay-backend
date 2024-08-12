@@ -61,4 +61,8 @@ public class EmployeeEntity {
     public void setPassword(String password) {
         this.password = password;
     }
+
+    public TableEntity getTableEntity() {
+        return tableEntity;
+    }
 }

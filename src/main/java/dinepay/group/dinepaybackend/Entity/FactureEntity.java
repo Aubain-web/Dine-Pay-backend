@@ -22,11 +22,11 @@ public class FactureEntity {
     private LocalDateTime dateCreation;
 
     @OneToOne
-    @JoinColumn(name = "table_id")
+    @JoinColumn(name = "table_numero")
     private TableEntity tableEntity;
 
     @ManyToOne
-    @JoinColumn(name = "salle_id")
+    @JoinColumn(name = "salle_numero")
     private SalleEntity salleEntity;
 
     @ManyToMany

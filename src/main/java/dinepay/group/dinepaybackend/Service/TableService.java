@@ -1,5 +1,6 @@
 package dinepay.group.dinepaybackend.Service;
 
+import dinepay.group.dinepaybackend.Entity.FactureEntity;
 import dinepay.group.dinepaybackend.Entity.TableEntity;
 import dinepay.group.dinepaybackend.Repository.TableRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -51,6 +52,7 @@ public class TableService {
             return false;
         }
     }
+
 
 
     }

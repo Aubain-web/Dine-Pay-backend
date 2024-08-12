@@ -59,4 +59,13 @@ public class FactureController {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
     }
+
+    @GetMapping("/allfacturesByTabelId/{id}")
+    public ResponseEntity<List<FactureEntity>> getFacturesOneTable(@PathVariable Long id) {
+        List<FactureEntity> allFactures = factureService.getAllFacturesOfOneTable(id);
+        if (allFactures.isEmpty()) {
+            return ResponseEntity.notFound().build();
+        }
+        return ResponseEntity.ok(allFactures);
+    }
 }

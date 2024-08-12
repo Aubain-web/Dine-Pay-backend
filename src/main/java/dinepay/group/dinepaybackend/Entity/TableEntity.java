@@ -1,6 +1,7 @@
 package dinepay.group.dinepaybackend.Entity;
 
 import jakarta.persistence.*;
+import org.hibernate.type.descriptor.jdbc.VarcharJdbcType;
 
 import java.util.List;
 
@@ -15,6 +16,7 @@ public class TableEntity {
     @Column(name = "numeroTable")
     private String numeroTable;
 
+
     @Column(name = "nombrePlaces")
     private int nombrePlaces;
 
@@ -23,6 +25,7 @@ public class TableEntity {
 
     @Column(name = "posY")
     private int posY;
+
 
     @ManyToOne
     @JoinColumn(name = "salle_id")
@@ -45,15 +48,16 @@ public class TableEntity {
 
 
 
-    public TableEntity(int id, String numeroTable, int nombrePlaces, int posX, int posY, SalleEntity salleEntity, FactureEntity factureEntity, List<ProduitEntity> produitEntityList, EmployeeEntity employeeEntity) {
+    public TableEntity() {
+
+    }
+
+    public TableEntity(int id, String numeroTable, int nombrePlaces, int posX, int posY, String img) {
         this.id = id;
         this.numeroTable = numeroTable;
         this.nombrePlaces = nombrePlaces;
         this.posX = posX;
         this.posY = posY;
-    }
-
-    public TableEntity() {
 
     }
 
@@ -97,28 +101,14 @@ public class TableEntity {
         this.posY = posY;
     }
 
+
     public SalleEntity getSalleEntity() {
         return salleEntity;
     }
 
-    public void setSalleEntity(SalleEntity salleEntity) {
-        this.salleEntity = salleEntity;
-    }
 
     public FactureEntity getFactureEntity() {
         return factureEntity;
-    }
-
-    public void setFactureEntity(FactureEntity factureEntity) {
-        this.factureEntity = factureEntity;
-    }
-
-    public List<ProduitEntity> getProduitEntityList() {
-        return produitEntityList;
-    }
-
-    public void setProduitEntityList(List<ProduitEntity> produitEntityList) {
-        this.produitEntityList = produitEntityList;
     }
 
     public EmployeeEntity getEmployeeEntity() {
@@ -128,6 +118,4 @@ public class TableEntity {
     public void setEmployeeEntity(EmployeeEntity employeeEntity) {
         this.employeeEntity = employeeEntity;
     }
-
-
 }

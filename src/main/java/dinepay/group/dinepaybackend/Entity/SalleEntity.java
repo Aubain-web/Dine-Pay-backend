@@ -65,4 +65,8 @@ public class SalleEntity {
     public void setNombreTable(int nombreTable) {
         this.nombreTable = nombreTable;
     }
+
+    public List<FactureEntity> getFactureEntities() {
+        return factureEntities;
+    }
 }
