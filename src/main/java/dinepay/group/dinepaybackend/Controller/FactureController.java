@@ -8,7 +8,9 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Date;
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/dinepay/facture")
@@ -67,5 +69,15 @@ public class FactureController {
             return ResponseEntity.notFound().build();
         }
         return ResponseEntity.ok(allFactures);
+    }
+
+    @GetMapping("/facture/{date}")
+    public ResponseEntity<FactureEntity> getFactureByDate(@PathVariable Date date) {
+        Optional<FactureEntity> factureDate = factureService.findFactureByCreationDate(date);
+        if (factureDate.isPresent()) {
+            return ResponseEntity.ok(factureDate.get());
+        } else {
+            return ResponseEntity.notFound().build();
+        }
     }
 }

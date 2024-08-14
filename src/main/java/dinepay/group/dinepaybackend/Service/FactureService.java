@@ -5,6 +5,7 @@ import dinepay.group.dinepaybackend.Repository.FactureRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -47,6 +48,10 @@ public class FactureService {
 
     public List<FactureEntity> getAllFacturesOfOneTable(long id){
         return factureRepository.findFactureEntitiesByTableEntityId(id);
+    }
+
+    public Optional<FactureEntity> findFactureByCreationDate(Date date){
+        return factureRepository.findByDateCreation(date);
     }
 
 }
